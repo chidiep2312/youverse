@@ -1,0 +1,49 @@
+ .friend-card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transition: transform 0.2s;
+            background-color: #fff;
+            width: 22%;
+            min-width: 200px;
+        }
+
+        .friend-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .friend-card .card-img-top {
+            height: 120px;
+            object-fit: cover;
+        }
+
+        .friend-card .user-name {
+            font-size: 1rem;
+            font-weight: bold;
+            margin: 6px 0;
+        }
+
+        .friend-card .rounded-circle {
+            border: 1px solid #ccc;
+            width: 40px;
+            height: 40px;
+        }
+
+        .btn-message {
+            margin-top: 8px;
+            border-radius: 20px;
+            padding: 4px 14px;
+            font-size: 0.8rem;
+        }
+
+        .friend-container {
+            padding: 10px 0;
+        }
+
+        @media (max-width: 768px) {
+            .friend-card {
+                width: 100% !important;
+                margin-left: 0 !important;
+            }
+        }

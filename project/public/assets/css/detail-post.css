@@ -1,0 +1,87 @@
+  #back {
+            font-weight: 600;
+            font-size: 1rem;
+            color:  #2559a6;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        #back:hover {
+            color: #322aa5;
+            text-decoration: underline;
+        }
+
+        .post-title {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .post-meta span {
+            background: #E8F5E9;
+            padding: 4px 10px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .post-meta i {
+            color: #2559a6;
+        }
+
+        .post-content img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 3px 10px rgb(0 0 0 / 0.1);
+        }
+
+        .post-comments h3 {
+            border-bottom: 2px solid  #2559a6;
+            padding-bottom: 6px;
+            margin-bottom: 25px;
+        }
+
+        #like-action button {
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        #like-action button:hover {
+            background-color: #2559a6;
+            color: white;
+        }
+
+        @media (max-width: 576px) {
+            .post-title {
+                font-size: 1.8rem !important;
+            }
+
+            .post-meta {
+                font-size: 0.8rem !important;
+            }
+        }
+ .post-content img {
+    width: 50%;
+    height: auto;
+ 
+   
+}
+    #slide-wrapper {
+        display: flex;
+        transition: all 0.3s ease;
+        gap: 15px;
+    }
+
+    .slide-item {
+        flex: 1 0 calc(33.333% - 10px); /* 3 bài / hàng */
+        max-width: calc(33.333% - 10px);
+    }
+
+    @media (max-width: 768px) {
+        .slide-item {
+            flex: 1 0 100%;
+            max-width: 100%;
+        }
+    }
+    

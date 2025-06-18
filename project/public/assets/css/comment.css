@@ -1,0 +1,10 @@
+.comments {
+    max-height: 300px; 
+    overflow-y: auto;     
+    padding-right: 10px;  
+ 
+    border-radius: 6px;
+}
+.comments::-webkit-scrollbar {
+    display: none;                  
+}

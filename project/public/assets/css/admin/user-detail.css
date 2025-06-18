@@ -1,0 +1,84 @@
+.user-detail-card {
+            max-width: 800px;
+            margin: 40px auto;
+            background-color: #1e1e2f;
+            border-radius: 16px;
+            padding: 30px;
+            color: #fff;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+        }
+
+        .user-detail-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            border-bottom: 1px solid #444;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .user-detail-header img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #00b894;
+        }
+
+        .user-info p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+
+        .user-info p span {
+            font-weight: 500;
+            color: #d1d1d1;
+        }
+
+        .user-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        
+        .user-actions a {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            border: none;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .user-actions a {
+            background-color: #f39c12;
+            color: #1e1e2f;
+        }
+
+        .user-actions a:hover {
+            background-color: #e67e22;
+        }
+
+        .user-actions a.delete {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        .user-actions a.delete:hover {
+            background-color: #c0392b;
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-link a {
+            color: #00cec9;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }

@@ -1,0 +1,16 @@
+.content-wrapper {
+    border-radius:30px;
+    /* background: linear-gradient(45deg, #4CAF50, #2E8B57);  */
+    background-image: url('../images/posts/bgr.png');
+    background-repeat: no-repeat;
+   background-size:cover;
+    height:1000px;
+}
+
+.post-detail{
+    background-color:#fff;
+    border-radius:30px;
+}
+.post-detail-inner{
+    padding:30px;
+}

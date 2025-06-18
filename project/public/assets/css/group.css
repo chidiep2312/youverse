@@ -1,0 +1,56 @@
+        .group-banner {
+            position: relative;
+            height: 260px;
+          
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .group-banner::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+       
+        }
+
+        .group-banner .group-title {
+            position: absolute;
+            bottom: 20px;
+            left: 30px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        .group-sidebar {
+            background: #fff;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .group-sidebar h4 {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .group-action button,
+        .group-action a {
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        .group-posts .card:hover {
+            transform: translateY(-3px);
+            transition: all 0.3s ease;
+        }
+
+        .no-access {
+            max-width: 500px;
+            margin: 0 auto;
+            display: block;
+        }

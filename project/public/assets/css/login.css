@@ -1,0 +1,17 @@
+*{
+background-color:#fff;
+}
+.content-wrapper{
+    background-color:#fff !important;
+}
+.mt-3 button{
+    background-color: #9a9eda;
+    border:none;
+    color:#102244;
+    font-weight: 500;
+}
+
+.mt-3 button:hover{
+    background-color: #4946db;
+   
+}
