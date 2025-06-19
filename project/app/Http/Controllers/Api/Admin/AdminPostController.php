@@ -61,6 +61,7 @@ class AdminPostController extends Controller
         $post = Post::withFlagged()->findOrFail($id);
         $post->is_flag = false;
         $post->save();
+        
         Mail::to($post->user->email)->queue(new ApproveViolationPostMail($post->user->name, $post->title, $post->create_at, $post->des));
         return response()->json(['success' => true]);
     }
@@ -74,8 +75,9 @@ class AdminPostController extends Controller
     }
     public function doneReportPost(Report $report)
     {
-        $report->status = 1;
-        $report->save();
+        $post_id=$report->post_id;
+        Report::where('post_id', $post_id)->update(['status' => 1]);
+
         return response()->json(['success' => true]);
     }
     public function detailPost(Post $post)
