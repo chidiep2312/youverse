@@ -71,9 +71,12 @@
 
                         </div>
                     </div>
+                </div>
 
-                    <div class="tab-pane fade" id="blocked" role="tabpanel">
-                        <div class="table-responsive">
+                <div class="tab-pane fade" id="blocked" role="tabpanel">
+                    <div class="table-responsive">
+
+                        @if(isset($solved))
                             <table class="table table-bordered table-hover align-middle">
                                 <thead class="table-light">
                                     <tr>
@@ -87,101 +90,106 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @if(isset($solved))
-                                        @foreach($solved as $index => $s)
-                                            <tr>
-                                                <td>{{ $index + 1  }}</td>
-                                                <td>{{  $s->post->title }}</td>
-                                                <td>{{  $s->post->user->name }}</td>
-                                                <td>{{  $s->reason  }}
-                                                    @if($s->details)
-                                                        - {{ $s->details }}
-                                                    @endif
-                                                </td>
-                                                <td>{{ $s->user->name }}</td>
-                                                <td>{{ $s->created_at->format('d/m/Y') }}</td>
-                                                <td class="text-center">
-                                                    <a href="{{ route('admin.post.detail-report', ['report' => $s->id]) }}"
-                                                        class="btn btn-sm btn-primary">Xem</a>
-                                                </td>
-                                            </tr>
-                                        @endforeach
 
-                                        <div class="pagination mt-3">
-                                            {{$solved->appends(request()->except('solved'))->links() }}
+                                    @foreach($solved as $index => $s)
+                                        <tr>
+                                            <td>{{ $index + 1  }}</td>
+                                            <td>{{  $s->post->title }}</td>
+                                            <td>{{  $s->post->user->name }}</td>
+                                            <td>{{  $s->reason  }}
+                                                @if($s->details)
+                                                    - {{ $s->details }}
+                                                @endif
+                                            </td>
+                                            <td>{{ $s->user->name }}</td>
+                                            <td>{{ $s->created_at->format('d/m/Y') }}</td>
+                                            <td class="text-center">
+                                                <a href="{{ route('admin.post.detail-report', ['report' => $s->id]) }}"
+                                                    class="btn btn-sm btn-primary">Xem</a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
 
-                                        </div>
-                                    @else
-                                        <p>Chưa có dữ liệu</p>
-                                    @endif
-                                </tbody>
-                            </table>
-                        </div>
+                                    <div class="pagination mt-3">
+                                        {{$solved->appends(request()->except('solved'))->links() }}
+
+                                    </div>
+                        @else
+                                            <p>Chưa có dữ liệu</p>
+
+                                        </tbody>
+                                    </table>
+                                @endif
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-                    <script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
 
-                        document.addEventListener('DOMContentLoaded', function () {
-                            const auth_token = localStorage.getItem('auth_token');
-                            document.querySelectorAll('.delete-post').forEach(button => {
-                                button.addEventListener('click', function (e) {
-                                    e.preventDefault();
-                                    const report = this.dataset.id;
-                                    if (confirm("Bạn có chắc muốn xóa bài viết này không này không?")) {
-                                        $.ajax({
-                                            url: `/api/admin/post/delete-report/${report}`,
-                                            method: "POST",
-                                            headers: {
-                                                'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                                                'Authorization': `Bearer ${auth_token}`
-                                            },
-                                            success: function (response) {
-                                                if (response.success == true) {
-                                                    alert(response.message);
-                                                    location.reload();
-                                                } else {
-                                                    alert("Có lỗi xảy ra khi xóa.");
-                                                }
-                                            },
-                                            error: function (xhr, status, error) {
-                                                console.error("Lỗi:", error);
-                                            }
-                                        });
-                                    }
-                                });
-
-                            });
-                        };
-                        document.querySelectorAll('.done').forEach(button => {
-                            button.addEventListener('click', function (e) {
-                                e.preventDefault();
-                                const report = this.dataset.id;
-                                $.ajax({
-                                    url: `/api/admin/post/done-report/${report}`,
-                                    method: "POST",
-                                    headers: {
-                                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                                        'Authorization': `Bearer ${auth_token}`
-                                    },
-                                    success: function (response) {
-                                        if (response.success == true) {
-                                            alert("Đánh dấu đã hoàn thành!");
-                                            location.reload();
-                                        } else {
-                                            alert("Có lỗi xảy ra khi xóa.");
-                                        }
-                                    },
-                                    error: function (xhr, status, error) {
-                                        console.error("Lỗi:", error);
-                                    }
-                                });
-                            });
+        document.addEventListener('DOMContentLoaded', function () {
+            const auth_token = localStorage.getItem('auth_token');
+            document.querySelectorAll('.delete-post').forEach(button => {
+                button.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const report = this.dataset.id;
+                    if (confirm("Bạn có chắc muốn xóa bài viết này không này không?")) {
+                        $.ajax({
+                            url: `/api/admin/post/delete-report/${report}`,
+                            method: "POST",
+                            headers: {
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                                'Authorization': `Bearer ${auth_token}`
+                            },
+                            success: function (response) {
+                                if (response.success == true) {
+                                    alert(response.message);
+                                    location.reload();
+                                } else {
+                                    alert("Có lỗi xảy ra khi xóa.");
+                                }
+                            },
+                            error: function (xhr, status, error) {
+                                console.error("Lỗi:", error);
+                            }
                         });
+                    }
+                });
 
-                                                                   );
+            });
+
+            document.querySelectorAll('.done').forEach(button => {
+                button.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const report = this.dataset.id;
+                    $.ajax({
+                        url: `/api/admin/post/done-report/${report}`,
+                        method: "POST",
+                        headers: {
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                            'Authorization': `Bearer ${auth_token}`
+                        },
+                        success: function (response) {
+                            if (response.success == true) {
+                                alert("Đánh dấu đã hoàn thành!");
+                                location.reload();
+                            } else {
+                                alert("Có lỗi xảy ra khi xóa.");
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            console.error("Lỗi:", error);
+                        }
+                    });
+                });
+            });
+
+        });
 
 
-                    </script>
+
+    </script>
 @endsection

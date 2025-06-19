@@ -48,6 +48,7 @@ class AdminPostController extends Controller
     {
         $reports = Report::with(['post.user', 'user'])->where('status', 0)->orderBy('created_at', 'asc')->paginate(10, ['*'], 'reports');
         $solved = Report::with(['post.user', 'user'])->where('status', 1)->orderBy('created_at', 'asc')->paginate(10, ['*'], 'solved');
+  
         return view('admin.posts.list', compact('reports', 'solved'));
     }
     public function listViolation()
